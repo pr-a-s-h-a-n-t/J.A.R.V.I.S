@@ -1,12 +1,9 @@
-import LeftScreen from "./components/EditorScreen";
-import Settings from "./components/Settings";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
-    <div className="border-2 flex w-full  h-screen  ">
-      <LeftScreen />
-
-      <Settings />
+    <div className="grid grid-cols-1 lg:grid-cols-2 ">
+      <LandingPage />
     </div>
   );
 }
