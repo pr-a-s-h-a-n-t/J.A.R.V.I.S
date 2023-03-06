@@ -1,11 +1,10 @@
-import LandingPage from "./components/LandingPage";
-
+import "./App.css";
+import  Editor from "./components/Editor";
 function App() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 ">
-      <LandingPage />
-    </div>
-  );
+  <div className="App">
+  <Editor />
+   </div>)
 }
 
 export default App;
