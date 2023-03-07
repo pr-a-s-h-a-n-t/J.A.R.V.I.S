@@ -1,9 +1,20 @@
 import React, { useContext, useState } from "react";
-import { ModalContext } from "../../Context/ModalContext";
+import { ModalContext } from "../../contex/ModalContex";
+// import {BiEditAlt, BiImport, BiExport, BiFullscreen  } from "react-icons/bi";
 import { BiEditAlt, BiImport, BiExport, BiFullscreen } from "react-icons/bi";
+// import   BiEditAlt  from "react-icons/bi";
+// import   BiImport  from "react-icons/bi";
+
+// import   BiExport  from "react-icons/bi";
+
+// import   BiFullscreen  from "react-icons/bi";
+
+
 import Select from "react-select";
-import { languageMap } from "../../Context/PlaygroundContext";
-import CodeEditor from "./CodeEditor";
+import { languageMap } from "../../contex/EditorContext";
+import CodeEditor from "./Editor";
+
+
 function EditContainer({
   title,
   currentLanguage,
@@ -38,6 +49,7 @@ function EditContainer({
     { value: "python", label: "python" },
     { value: "java", label: "java" },
   ];
+
   const [currentTheme, setCurrentTheme] = useState(themeOptions[0]);
 
   const handleThemeChange = (selectedOption) => {
@@ -52,6 +64,7 @@ function EditContainer({
     }
     return languageOptions[0];
   });
+
   // language -> default object for my dropdown menu { value, label}
   // currentLanguage -> string value "js", "python", "cpp"
   const handleLanguageChange = (selectedOption) => {
@@ -59,6 +72,7 @@ function EditContainer({
     setCurrentLanguage(selectedOption.value);
     setCurrentCode(languageMap[selectedOption.value].defaultCode);
   };
+  
   return (
     <div
       className={`flex flex-col ${

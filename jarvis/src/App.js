@@ -1,11 +1,11 @@
 import "./App.css";
 import  Editor from "./components/Editor/Editor";
-// import EditContainer from "./components/Index"
+import EditContainer from "./components/Editor/EditContainer"
 function App() {
   return (
   <div className="App">
-  <Editor />
-  {/* <EditContainer /> */}
+  {/* <Editor /> */}
+  <EditContainer />
    </div>)
 }
 
