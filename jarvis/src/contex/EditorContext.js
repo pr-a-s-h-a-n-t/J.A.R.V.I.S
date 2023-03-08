@@ -28,21 +28,25 @@ export const languageMap = {
   },
   javascript: {
     id: 63,
-    defaultCode: `console.log("Hello World!")`,
+    defaultCode: `console.log(" ❤️"  ) `,
+    //  -----------------------------------   //
   },
 };
 
 const PlaygroundProvider = ({ children }) => {
   const initialItems = {
-    [uuid()]: {
+    // [uuid()]: {
+    [0]: {
       title: "DSA",
       playgrounds: {
-        [uuid()]: {
+        // [uuid()]: {
+        [0]: {
           title: "Stack imp",
           language: "cpp",
           code: languageMap["cpp"].defaultCode,
         },
-        [uuid()]: {
+        // [uuid()]: {
+        [0]: {
           title: "Array",
           language: "javascript",
           code: languageMap["javascript"].defaultCode,
@@ -91,7 +95,7 @@ const PlaygroundProvider = ({ children }) => {
   const addPlayground = (folderId, playgroundName, language) => {
     setFolders((oldState) => {
       const newState = { ...oldState };
-      newState[folderId].playgrounds[uuid()] = {
+      newState[0].playgrounds[0] = {
         title: playgroundName,
         language: language,
         code: languageMap[language].defaultCode,

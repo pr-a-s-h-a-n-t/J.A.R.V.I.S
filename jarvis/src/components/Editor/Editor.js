@@ -97,7 +97,7 @@ function CodeEditor({
       theme={theme}
       extensions={[
         language,
-        indentUnit.of("        "),
+        indentUnit.of("     "),
         EditorState.tabSize.of(8),
         EditorState.changeFilter.of(() => true),
       ]}

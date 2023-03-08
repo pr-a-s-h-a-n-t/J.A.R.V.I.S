@@ -1,11 +1,13 @@
 import "./App.css";
 import  Editor from "./components/Editor/Editor";
 import EditContainer from "./components/Editor/EditContainer"
+import PlayGround from "./components/PlayGround/PlayGround";
 function App() {
   return (
-  <div className="App">
+  <div  >
   {/* <Editor /> */}
-  <EditContainer />
+  {/* <EditContainer /> */}
+  <PlayGround />
    </div>)
 }
 
