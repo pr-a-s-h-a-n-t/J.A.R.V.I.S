@@ -28,8 +28,8 @@ export const languageMap = {
   },
   javascript: {
     id: 63,
-    defaultCode: `console.log(" ❤️"  ) `,
-    //  -----------------------------------   //
+    defaultCode: `console.log(" ❤️ "  ) `,
+    //  ----------------------------------- //
   },
 };
 
