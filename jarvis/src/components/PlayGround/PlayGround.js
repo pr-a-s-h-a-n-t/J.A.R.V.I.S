@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PlaygroundContext, languageMap } from "../../contex/EditorContext";
-import { ModalContext } from "../../contex/ModalContex";
+ 
 import { Buffer } from "buffer";
 import axios from "axios";
-// import Navbar from "../Components/Playground/Navbar";
+import Navbar from "../NavBar";
 import EditContainer from "../../components/Editor/EditContainer";
 import InputConsole from "../../components/Editor/InputScreen";
 import OutputConsole from "../../components/Editor/OutputScreen";
@@ -12,7 +12,7 @@ import OutputConsole from "../../components/Editor/OutputScreen";
 function PlayGround() {
   const { folderId, playgroundId } = useParams();
   const { folders, savePlayground } = useContext(PlaygroundContext);
-  const { isOpenModal, openModal, closeModal } = useContext(ModalContext);
+  // const { isOpenModal, openModal, closeModal } = useContext(ModalContext);
   //   const { title, language, code } = folders[folderId].playgrounds[playgroundId];
   // const { title, language, code } = folders[0].playgrounds[1];
 
@@ -51,7 +51,7 @@ playground error fix
     },
     javascript: {
       id: 63,
-      defaultCode: `console.log(" ❤️ "  ) `,
+      defaultCode: `console.log("Hii  Coder ") `,
       //  ----------------------------------- //
     },
   };
@@ -116,14 +116,7 @@ playground error fix
   };
 
   const runCode = async () => {
-    openModal({
-      show: true,
-      modalType: 6,
-      identifiers: {
-        folderId: "",
-        cardID: "",
-      },
-    });
+    
     const language_id = languageMap[currentLanguage].id;
     const source_code = encode(currentCode);
     const std_in = encode(currentInput);
@@ -148,7 +141,7 @@ playground error fix
       final_output = decoded_output;
     }
     setCurrentOutput(status_name + "\n\n" + final_output);
-    closeModal();
+     
   };
 
   function readFileContent(file) {
@@ -174,7 +167,7 @@ playground error fix
   };
   return (
     <div>
-      {/* <Navbar isFullScreen={isFullScreen} /> */}
+      <Navbar isFullScreen={isFullScreen} />
       <div className="flex flex-row h-full">
         <div className={`${isFullScreen ? "w-full" : "w-3/4"}`}>
           <EditContainer

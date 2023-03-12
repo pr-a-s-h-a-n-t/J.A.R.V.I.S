@@ -1,14 +1,7 @@
 import React, { useContext, useState } from "react";
-import { ModalContext } from "../../contex/ModalContex";
-// import {BiEditAlt, BiImport, BiExport, BiFullscreen  } from "react-icons/bi";
+ 
 import { BiEditAlt, BiImport, BiExport, BiFullscreen } from "react-icons/bi";
-// import   BiEditAlt  from "react-icons/bi";
-// import   BiImport  from "react-icons/bi";
-
-// import   BiExport  from "react-icons/bi";
-
-// import   BiFullscreen  from "react-icons/bi";
-
+ 
 
 import Select from "react-select";
 import { languageMap } from "../../contex/EditorContext";
@@ -29,7 +22,7 @@ function EditContainer({
   setIsFullScreen,
   getFile,
 }) {
-  const { openModal } = useContext(ModalContext);
+  // const { openModal } = useContext(ModalContext);
   const themeOptions = [
     { value: "githubDark", label: "Github Dark" },
     { value: "githubLight", lablel: "github white" },
@@ -86,15 +79,15 @@ function EditContainer({
             <h3 className="font-semibold">{title}</h3>
             <BiEditAlt
               style={{ fontSize: "1.5rem" }}
-              onClick={() =>
-                openModal({
-                  show: true,
-                  modalType: 5,
-                  identifiers: {
-                    folderId: folderId,
-                    cardID: playgroundId,
-                  },
-                })
+              onClick={() => {}
+                // openModal({
+                //   show: true,
+                //   modalType: 5,
+                //   identifiers: {
+                //     folderId: folderId,
+                //     cardID: playgroundId,
+                //   },
+                // })
               }
             />
             <button className="font-normal rounded-full p-2 bg-[#0097d7]">
@@ -156,7 +149,7 @@ function EditContainer({
         </a>
         <button
           onClick={runCode}
-          className="font-normal rounded-full p-2 bg-[#0097d7]"
+          className="font-normal rounded-full p-2 bg-[#0097d7]  "
         >
           Run Code
         </button>
