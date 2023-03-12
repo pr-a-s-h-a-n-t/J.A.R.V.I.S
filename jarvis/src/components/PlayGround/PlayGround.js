@@ -8,16 +8,11 @@ import Navbar from "../NavBar";
 import EditContainer from "../../components/Editor/EditContainer";
 import InputConsole from "../../components/Editor/InputScreen";
 import OutputConsole from "../../components/Editor/OutputScreen";
-// import Modal from "../components/Modal";
+ 
 function PlayGround() {
   const { folderId, playgroundId } = useParams();
   const { folders, savePlayground } = useContext(PlaygroundContext);
-  // const { isOpenModal, openModal, closeModal } = useContext(ModalContext);
-  //   const { title, language, code } = folders[folderId].playgrounds[playgroundId];
-  // const { title, language, code } = folders[0].playgrounds[1];
-
-  // const [currentLanguage, setCurrentLanguage] = useState(language);
-  // const [currentCode, setCurrentCode] = useState(code);
+ 
   const [currentInput, setCurrentInput] = useState("");
   const [currentOutput, setCurrentOutput] = useState("");
   const [isFullScreen, setIsFullScreen] = useState(false);
