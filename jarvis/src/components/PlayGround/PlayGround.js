@@ -13,14 +13,57 @@ function PlayGround() {
   const { folderId, playgroundId } = useParams();
   const { folders, savePlayground } = useContext(PlaygroundContext);
   const { isOpenModal, openModal, closeModal } = useContext(ModalContext);
-//   const { title, language, code } = folders[folderId].playgrounds[playgroundId];
-const { title, language, code } = folders[0].playgrounds[0];
+  //   const { title, language, code } = folders[folderId].playgrounds[playgroundId];
+  // const { title, language, code } = folders[0].playgrounds[1];
 
-  const [currentLanguage, setCurrentLanguage] = useState(language);
-  const [currentCode, setCurrentCode] = useState(code);
+  // const [currentLanguage, setCurrentLanguage] = useState(language);
+  // const [currentCode, setCurrentCode] = useState(code);
   const [currentInput, setCurrentInput] = useState("");
   const [currentOutput, setCurrentOutput] = useState("");
   const [isFullScreen, setIsFullScreen] = useState(false);
+
+  /*
+
+playground error fix
+*/
+  const languageMap = {
+    cpp: {
+      id: 54,
+      defaultCode:
+        "#include <iostream>\n" +
+        "using namespace std;\n\n" +
+        "int main() {\n" +
+        '\tcout << "Hello World!";\n' +
+        "\treturn 0;\n" +
+        "}",
+    },
+    java: {
+      id: 62,
+      defaultCode: `public class Main {
+            public static void main(String[] args) {
+                System.out.println("Hello World!");
+            }
+    }`,
+    },
+    python: {
+      id: 71,
+      defaultCode: `print("Hello World")`,
+    },
+    javascript: {
+      id: 63,
+      defaultCode: `console.log(" ❤️ "  ) `,
+      //  ----------------------------------- //
+    },
+  };
+
+  const [title, setTitle] = useState("Array");
+  const [language, setLanguage] = useState("javascript");
+  const [code, setCode] = useState(languageMap["javascript"].defaultCode);
+
+  const [currentLanguage, setCurrentLanguage] = useState(language);
+  const [currentCode, setCurrentCode] = useState(code);
+
+  /*============== end  ========================*/
 
   const saveCode = () => {
     savePlayground(folderId, playgroundId, currentCode, currentLanguage);

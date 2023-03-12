@@ -46,7 +46,7 @@ const PlaygroundProvider = ({ children }) => {
           code: languageMap["cpp"].defaultCode,
         },
         // [uuid()]: {
-        [0]: {
+        [1]: {
           title: "Array",
           language: "javascript",
           code: languageMap["javascript"].defaultCode,
