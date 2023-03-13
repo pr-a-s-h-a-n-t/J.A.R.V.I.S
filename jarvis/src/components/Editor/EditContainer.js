@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
- 
+
 import { BiEditAlt, BiImport, BiExport, BiFullscreen } from "react-icons/bi";
- 
- import WhiteBoard from "../../components/whiteboard/index"
+
+import WhiteBoard from "../../components/whiteboard/index";
 import Select from "react-select";
 import { languageMap } from "../../contex/EditorContext";
 import CodeEditor from "./Editor";
-
+import toast, { Toaster } from "react-hot-toast";
 
 function EditContainer({
   title,
@@ -65,7 +65,26 @@ function EditContainer({
     setCurrentLanguage(selectedOption.value);
     setCurrentCode(languageMap[selectedOption.value].defaultCode);
   };
-  
+
+  const handleClick = ( ) => {
+
+    runCode(); 
+    toast('Here is your toast.');
+
+  }
+
+  toast.success("Look at my styles.", {
+    style: {
+      border: "1px solid #713200",
+      padding: "16px",
+      color: "#713200",
+    },
+    iconTheme: {
+      primary: "#713200",
+      secondary: "#FFFAEE",
+    },
+  });
+
   return (
     <div
       className={`flex flex-col ${
@@ -79,7 +98,8 @@ function EditContainer({
             <h3 className="font-semibold">{title}</h3>
             <BiEditAlt
               style={{ fontSize: "1.5rem" }}
-              onClick={() => {}
+              onClick={
+                () => {}
                 // openModal({
                 //   show: true,
                 //   modalType: 5,
@@ -90,18 +110,20 @@ function EditContainer({
                 // })
               }
             />
-            <button 
-             style={{
-            background: "linear-gradient(to right,rgb(253 0 255), rgb(24 223 241))",
-            border: "none",
-            color: "hsl(65deg 100% 49%)",
-        }}
-            className="font-normal rounded-full p-2 ">
+            <button
+              style={{
+                background:
+                  "linear-gradient(to right,rgb(253 0 255), rgb(24 223 241))",
+                border: "none",
+                color: "hsl(65deg 100% 49%)",
+              }}
+              className="font-normal rounded-full p-2 "
+            >
               Save Code
             </button>
           </div>
           <div className="flex gap-4">
-          <WhiteBoard />
+            <WhiteBoard />
             <Select
               options={languageOptions}
               value={language} // default value or the changing value
@@ -155,12 +177,13 @@ function EditContainer({
           Export Code
         </a>
         <button
-         style={{
-            background: "linear-gradient(to right, rgb(253 0 255), rgb(24 223 241))",
+          style={{
+            background:
+              "linear-gradient(to right, rgb(253 0 255), rgb(24 223 241))",
             border: "none",
             color: "hsl(65deg 100% 49%)",
-        }}
-          onClick={runCode}
+          }}
+          onClick={handleClick }
           className="font-normal rounded-full p-2   "
         >
           Run Code
@@ -171,3 +194,8 @@ function EditContainer({
 }
 
 export default EditContainer;
+
+// const notify = () => toast('Start Drawing the magic.');
+//   return (
+//     <div>
+//         <button onClick={notify}
