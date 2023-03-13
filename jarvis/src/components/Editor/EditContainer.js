@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
  
 import { BiEditAlt, BiImport, BiExport, BiFullscreen } from "react-icons/bi";
  
-
+ import WhiteBoard from "../../components/whiteboard/index"
 import Select from "react-select";
 import { languageMap } from "../../contex/EditorContext";
 import CodeEditor from "./Editor";
@@ -95,6 +95,7 @@ function EditContainer({
             </button>
           </div>
           <div className="flex gap-4">
+          <WhiteBoard />
             <Select
               options={languageOptions}
               value={language} // default value or the changing value
