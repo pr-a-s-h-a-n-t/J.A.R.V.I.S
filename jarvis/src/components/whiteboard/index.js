@@ -5,7 +5,7 @@ function WhiteBoard() {
     <div>
         <button 
         style={{
-            background: "linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147))",
+            background: "linear-gradient(to right, rgb(182, 244, 146), rgb(156 81 31))",
             border: "none",
             color: "hsl(65deg 100% 49%)",
         }}

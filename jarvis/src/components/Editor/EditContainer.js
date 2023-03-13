@@ -90,7 +90,13 @@ function EditContainer({
                 // })
               }
             />
-            <button className="font-normal rounded-full p-2 bg-[#0097d7]">
+            <button 
+             style={{
+            background: "linear-gradient(to right,rgb(253 0 255), rgb(24 223 241))",
+            border: "none",
+            color: "hsl(65deg 100% 49%)",
+        }}
+            className="font-normal rounded-full p-2 ">
               Save Code
             </button>
           </div>
@@ -149,8 +155,13 @@ function EditContainer({
           Export Code
         </a>
         <button
+         style={{
+            background: "linear-gradient(to right, rgb(253 0 255), rgb(24 223 241))",
+            border: "none",
+            color: "hsl(65deg 100% 49%)",
+        }}
           onClick={runCode}
-          className="font-normal rounded-full p-2 bg-[#0097d7]  "
+          className="font-normal rounded-full p-2   "
         >
           Run Code
         </button>

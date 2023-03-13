@@ -1,0 +1,25 @@
+.tools-wrapper {
+    border: var(--tools-wrapper-border);
+    /* border-radius: var(--tools-wrapper-br); */
+    background-color: var(--tools-wrapper-bg);
+    /* box-shadow: var(--tools-box-shadow); */
+    /* width: var(--tools-wrapper-width); */
+    width: 500px;
+    display: var(--tools-wrapper-height);
+    position: fixed;
+    /* top: calc(100vh / 2 - 200px); */
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--tools-wrapper-vp);
+    padding-bottom: var(--tools-wrapper-vp);
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    top: 1rem;
+    left: 31vw;
+
+}
