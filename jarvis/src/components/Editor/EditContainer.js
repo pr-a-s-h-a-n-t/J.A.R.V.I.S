@@ -66,9 +66,8 @@ function EditContainer({
     setCurrentCode(languageMap[selectedOption.value].defaultCode);
   };
 
-  const handleClick = ( ) => {
-
-    runCode(); 
+  const handleClick = () => {
+    runCode();
     // toast('Here is your toast.');
 
     toast.success("compiling...", {
@@ -82,8 +81,14 @@ function EditContainer({
         secondary: "#FFFAEE",
       },
     });
-  }
+  };
 
+  function handleSave() {
+    // save the current code to local storage!
+
+    console.log(currentCode, " this is currentCode");
+    localStorage.setItem("code", currentCode);
+  }
 
   return (
     <div
@@ -96,21 +101,9 @@ function EditContainer({
         <div className="bg-white flex justify-between items-center flex-wrap p-4">
           <div className="flex gap-4 items-center">
             <h3 className="font-semibold">{title}</h3>
-            <BiEditAlt
-              style={{ fontSize: "1.5rem" }}
-              onClick={
-                () => {}
-                // openModal({
-                //   show: true,
-                //   modalType: 5,
-                //   identifiers: {
-                //     folderId: folderId,
-                //     cardID: playgroundId,
-                //   },
-                // })
-              }
-            />
+            <BiEditAlt style={{ fontSize: "1.5rem" }} onClick={() => {}} />
             <button
+              onClick={handleSave}
               style={{
                 background:
                   "linear-gradient(to right,rgb(253 0 255), rgb(24 223 241))",
@@ -183,7 +176,7 @@ function EditContainer({
             border: "none",
             color: "hsl(65deg 100% 49%)",
           }}
-          onClick={handleClick }
+          onClick={handleClick}
           className="font-normal rounded-full p-2   "
         >
           Run Code
@@ -194,8 +187,3 @@ function EditContainer({
 }
 
 export default EditContainer;
-
-// const notify = () => toast('Start Drawing the magic.');
-//   return (
-//     <div>
-//         <button onClick={notify}

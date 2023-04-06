@@ -8,8 +8,6 @@ import CodeMirror from "@uiw/react-codemirror";
 // @uiw/codemirror-theme-xcode @uiw/codemirror-theme-vscode
 // @uiw/codemirror-theme-okaidia
 
-
-
 import { githubDark, githubLight } from "@uiw/codemirror-theme-github";
 import { bespin } from "@uiw/codemirror-theme-bespin";
 import { duotoneDark, duotoneLight } from "@uiw/codemirror-theme-duotone";
@@ -37,6 +35,8 @@ function CodeEditor({
 }) {
   const [theme, setTheme] = useState(githubDark);
   const [language, setLanguage] = useState(javascript);
+  // const [currentCode, setCurrentCode] = useState("");
+
   useEffect(() => {
     if (currentLanguage === "javascript") {
       setLanguage(javascript);
@@ -49,23 +49,14 @@ function CodeEditor({
     }
   }, [currentLanguage]);
 
+  // console.log(currentCode, " this is my currentCode");
 
-
-  //   { value: "githubDark", label: "Github Dark" },
-  //     { value: "githubLight", lablel: "github white" },
-  //     { value: "bespin", label: "Bespin" },
-  //     { value: "duotoneDark", label: "Duotone Dark" },
-  //     { value: "duotoneLight", label: "Duotone Light" },
-  //     { value: "dracula", label: "Dracula" },
-  //     { value: "xcodeDark", label: "Xcode Dark" },
-  //     { value: "xcodeLight", label: "Xcode Light" },
-  //     { value: "vscodeDark", label: "Vscode Dark" },
-  //     { value: "vscodeLight", label: "Vscode Light" },
-  //     { value: "okaidia", label: "Okaidia" },
-
-
-
-
+  //get the current code from local storage
+  const [savedCode, setSavedCode] = useState("");
+  useEffect(() => {
+    let savedCode = JSON.stringify(localStorage.getItem(currentCode));
+    setSavedCode(() => savedCode);
+  }, [currentCode]);
 
   useEffect(() => {
     if (currentTheme === "githubDark") {
@@ -92,7 +83,7 @@ function CodeEditor({
   }, [currentTheme]);
   return (
     <CodeMirror
-      value={currentCode}
+      value={savedCode}
       height={`${isFullScreen ? "92vh" : "76vh"}`}
       theme={theme}
       extensions={[
