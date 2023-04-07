@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PlaygroundContext, languageMap } from "../../contex/EditorContext";
- 
+
 import { Buffer } from "buffer";
 import axios from "axios";
 import Navbar from "../NavBar";
 import EditContainer from "../../components/Editor/EditContainer";
 import InputConsole from "../../components/Editor/InputScreen";
 import OutputConsole from "../../components/Editor/OutputScreen";
- 
+
 function PlayGround() {
   const { folderId, playgroundId } = useParams();
   const { folders, savePlayground } = useContext(PlaygroundContext);
- 
+
   const [currentInput, setCurrentInput] = useState("");
   const [currentOutput, setCurrentOutput] = useState("");
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -102,6 +102,7 @@ playground error fix
         "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
       },
     };
+
     const res = await axios.request(options);
     if (res.data.status_id <= 2) {
       const res2 = await getOutput(token);
@@ -111,7 +112,6 @@ playground error fix
   };
 
   const runCode = async () => {
-    
     const language_id = languageMap[currentLanguage].id;
     const source_code = encode(currentCode);
     const std_in = encode(currentInput);
@@ -136,7 +136,6 @@ playground error fix
       final_output = decoded_output;
     }
     setCurrentOutput(status_name + "\n\n" + final_output);
-     
   };
 
   function readFileContent(file) {
@@ -178,6 +177,8 @@ playground error fix
             isFullScreen={isFullScreen}
             setIsFullScreen={setIsFullScreen}
             getFile={getFile}
+            currentInput={currentInput}
+            setCurrentInput={setCurrentInput}
           />
         </div>
         {!isFullScreen && (

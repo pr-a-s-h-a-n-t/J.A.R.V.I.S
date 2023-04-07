@@ -52,11 +52,14 @@ function CodeEditor({
   // console.log(currentCode, " this is my currentCode");
 
   //get the current code from local storage
-  const [savedCode, setSavedCode] = useState("");
+  const [code, setSavedCode] = useState("");
+
   useEffect(() => {
-    let savedCode = JSON.stringify(localStorage.getItem(currentCode));
+    let savedCode = JSON.stringify(localStorage.getItem("code"));
+
     setSavedCode(() => savedCode);
-  }, [currentCode]);
+    console.log(savedCode, "SSSSSSSS");
+  }, []);
 
   useEffect(() => {
     if (currentTheme === "githubDark") {
@@ -83,7 +86,7 @@ function CodeEditor({
   }, [currentTheme]);
   return (
     <CodeMirror
-      value={savedCode}
+      value={currentCode ? currentCode :  code}
       height={`${isFullScreen ? "92vh" : "76vh"}`}
       theme={theme}
       extensions={[

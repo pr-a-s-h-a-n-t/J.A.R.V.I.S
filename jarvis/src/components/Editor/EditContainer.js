@@ -21,6 +21,8 @@ function EditContainer({
   isFullScreen,
   setIsFullScreen,
   getFile,
+  currentInput,
+  setCurrentInput,
 }) {
   // const { openModal } = useContext(ModalContext);
   const themeOptions = [
@@ -87,7 +89,7 @@ function EditContainer({
     // save the current code to local storage!
 
     console.log(currentCode, " this is currentCode");
-    localStorage.setItem("code", currentCode);
+    localStorage.setItem("code", JSON.stringify(currentCode));
   }
 
   return (
@@ -138,8 +140,7 @@ function EditContainer({
         setCurrentCode={setCurrentCode}
         isFullScreen={isFullScreen}
       />
-      {/* Home work */}
-      {/* Foooter */}
+
       <div className="bg-white flex w-full justify-between p-4">
         <button
           className="flex gap-3 items-center"
@@ -149,13 +150,13 @@ function EditContainer({
           {isFullScreen ? "Minimize Screen" : "Full Screen"}
         </button>
 
-        <lable className="flex gap-3 items-center" htmlFor="codefile">
+        <lable className="flex gap-3 items-center"  htmlFor="inputfile"   >
           <input
+            id="inputfile"
             className="hidden"
             type="file"
             accept="."
-            id="codefile"
-            onChange={(e) => getFile((e, setCurrentCode))}
+            onChange={(e) => getFile(e, setCurrentCode)}
           />
           <BiImport style={{ fontSize: "1.5rem" }} /> Import Code
         </lable>
